@@ -1,8 +1,16 @@
-# ROOT data files #
-###################
-*.root
-
 # Temporary files #
 ###################
 *~
 *.swp
+
+# ROOT data files #
+###################
+*.root
+
+# Compiled objects #
+####################
+*.o
+
+# Executable #
+##############
+check-simulation
