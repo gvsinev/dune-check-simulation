@@ -10,11 +10,18 @@ LDFLAGS  := -g -Wall
 RM       := rm
 
 
-LARSOFT_INCS := 
-INCLUDES     := $(LARSOFT_INCS) -I${ROOT_INC}
+FRAMEWORK_INCS := -I${CANVAS_INC}   \
+                  -I${CETLIB_INC}   \
+                  -I${FHICLCPP_INC} \
+                  -I${GALLERY_INC}  \
+                  -I${NUSIMDATA_INC}
+INCLUDES       := $(FRAMEWORK_INCS) -I${ROOT_INC}
 
-LARSOFT_LIBS := 
-LIBS         := $(LARSOFT_LIBS) $(shell root-config --libs)
+FRAMEWORK_LIBS := -L${CANVAS_LIB}    -lcanvas_Utilities \
+                  -L${CETLIB_LIB}    -lcetlib           \
+                  -L${GALLERY_LIB}   -lgallery          \
+                  -L${NUSIMDATA_LIB} -lnusimdata_SimulationBase
+LIBS           := $(FRAMEWORK_LIBS) $(shell root-config --libs)
 
 check-simulation: $(OBJS)
 	$(CXX) $(LDFLAGS) -o check-simulation $(OBJS) $(LIBS)
