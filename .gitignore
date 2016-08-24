@@ -1,0 +1,8 @@
+# ROOT data files #
+###################
+*.root
+
+# Temporary files #
+###################
+*~
+*.swp
